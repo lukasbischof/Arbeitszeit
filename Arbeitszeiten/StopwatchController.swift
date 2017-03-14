@@ -12,8 +12,9 @@ let ONE_HOUR = 3_600.0
 
 class StopwatchController: NSObject {
     var stopwatches: [Stopwatch] = []
-    var currentStopwatch: Stopwatch?
     static let sharedController = StopwatchController()
+    
+    var currentStopwatch: Stopwatch = Stopwatch()
     
     override init() {
         super.init()
@@ -32,7 +33,7 @@ class StopwatchController: NSObject {
             let unarchieved = NSKeyedUnarchiver.unarchiveObject(withFile: file) as? StopwatchControllerSaving
             if let saving = unarchieved {
                 self.stopwatches = saving.stopwatches
-                self.currentStopwatch = saving.currentStopwatch
+                self.currentStopwatch = saving.currentStopwatch ?? Stopwatch()
             }
         }
     }
@@ -52,8 +53,8 @@ class StopwatchController: NSObject {
         formatter.dateFormat = "MMMM yyyy"
         formatter.locale = Locale(identifier: "de_DE")
         
-        var months = Dictionary<String, [Stopwatch]>()
-        for stopwatch in stopwatches {
+        var months: Dictionary<String, [Stopwatch]> = [:]
+        for stopwatch in stopwatches.sorted(by: { $0.startDate!.timeIntervalSinceReferenceDate < $1.startDate!.timeIntervalSinceReferenceDate }) {
             let formattedMonth = formatter.string(from: stopwatch.startDate!)
             if !months.keys.contains(formattedMonth) {
                 months[formattedMonth] = [stopwatch]

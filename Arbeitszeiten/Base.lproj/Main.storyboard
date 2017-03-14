@@ -36,7 +36,7 @@
                                     <action selector="toggleTimerButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="GQR-A5-I06"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer noch nicht gestartet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJe-bp-aBK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uhr noch nicht gestartet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJe-bp-aBK">
                                 <rect key="frame" x="16" y="230" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="AbU-ao-05v"/>
@@ -89,7 +89,7 @@
         <scene sceneID="psE-sL-kkx">
             <objects>
                 <tableViewController id="t1u-tp-9yq" customClass="ListViewController" customModule="Arbeitszeiten" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8gJ-aR-PzU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8gJ-aR-PzU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,7 +127,12 @@
                             <outlet property="delegate" destination="t1u-tp-9yq" id="zKr-pN-1hg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Zeiten" id="xpc-UR-Drh"/>
+                    <navigationItem key="navigationItem" title="Zeiten" id="xpc-UR-Drh">
+                        <barButtonItem key="rightBarButtonItem" title="+00:00:00" id="5a0-ST-rZA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="overtimeSummary" destination="5a0-ST-rZA" id="d9N-Tv-Oq5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxW-x2-gAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

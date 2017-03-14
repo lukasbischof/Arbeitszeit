@@ -19,6 +19,7 @@
 		484CDABF1E72833B005447C0 /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDABE1E72833B005447C0 /* StopwatchController.swift */; };
 		8042A9CF1E784657005160AA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042A9CE1E784657005160AA /* DetailsViewController.swift */; };
 		8042A9D11E7858B7005160AA /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042A9D01E7858B7005160AA /* DEBUG.swift */; };
+		806A31251E787B7B00E21D68 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A31241E787B7B00E21D68 /* Header.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		484CDABE1E72833B005447C0 /* StopwatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
 		8042A9CE1E784657005160AA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8042A9D01E7858B7005160AA /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DEBUG.swift; path = ../Arbeitszeiten/DEBUG.swift; sourceTree = "<group>"; };
+		806A31241E787B7B00E21D68 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				484247E01E71FF500073FC70 /* StopwatchViewController.swift */,
 				484247E21E71FF500073FC70 /* ListViewController.swift */,
+				806A31241E787B7B00E21D68 /* Header.xib */,
 				8042A9CE1E784657005160AA /* DetailsViewController.swift */,
 			);
 			name = ViewControllers;
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806A31251E787B7B00E21D68 /* Header.xib in Resources */,
 				484247EB1E71FF500073FC70 /* LaunchScreen.storyboard in Resources */,
 				484247E81E71FF500073FC70 /* Assets.xcassets in Resources */,
 				484247E61E71FF500073FC70 /* Main.storyboard in Resources */,
