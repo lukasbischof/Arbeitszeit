@@ -15,6 +15,7 @@ class StopwatchViewController: UIViewController {
     let stopwatchController = StopwatchController.sharedController
     var timerThread: Thread!
     var shouldStopThread: Bool = false
+    var isDisplayingAStopwatch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,15 @@ class StopwatchViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         reenableToggleTimerButton()
+        
+        if stopwatchController.currentStopwatch.hasStarted &&
+            !stopwatchController.currentStopwatch.hasStopped &&
+            !isDisplayingAStopwatch
+        {
+            startRenderingStopwatch()
+        }
     }
     
     func applicationDidBecomeActive(_ notification: Notification) {
@@ -52,6 +61,10 @@ class StopwatchViewController: UIViewController {
     
     internal func startStopwatch(_ stopwatch: Stopwatch) -> Void {
         stopwatch.start()
+        startRenderingStopwatch()
+    }
+    
+    internal func startRenderingStopwatch() -> Void {
         timerLabel.textColor = UIColor.black
         timerLabel.text = "00:00:00"
         toggleTimerButton.setTitle("Stop", for: .normal)
@@ -59,6 +72,9 @@ class StopwatchViewController: UIViewController {
         shouldStopThread = false
         timerThread = Thread(target: self, selector: #selector(StopwatchViewController.timerThreadMain), object: nil)
         timerThread.start()
+        
+        stopwatchController.save()
+        isDisplayingAStopwatch = true
     }
     
     internal func stopStopwatch(_ stopwatch: Stopwatch) -> Void {
@@ -73,6 +89,8 @@ class StopwatchViewController: UIViewController {
         stopwatchController.addStopwatch(stopwatch)
         stopwatchController.currentStopwatch = Stopwatch()
         stopwatchController.save()
+        
+        isDisplayingAStopwatch = false
     }
     
     internal func timerThreadMain() -> Swift.Void {
