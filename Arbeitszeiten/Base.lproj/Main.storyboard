@@ -45,12 +45,22 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6Y-jt-nZI" customClass="DiagramView" customModule="Arbeitszeiten" customModuleProvider="target">
+                                <rect key="frame" x="16" y="282" width="343" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="scm-Tw-n4K"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="z8a-BI-bhM" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="3Om-KY-mEV"/>
+                            <constraint firstItem="v6Y-jt-nZI" firstAttribute="top" secondItem="fJe-bp-aBK" secondAttribute="bottom" constant="8" id="DMv-lF-waA"/>
                             <constraint firstItem="z8a-BI-bhM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="40" id="I0X-19-KYY"/>
+                            <constraint firstItem="v6Y-jt-nZI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="UfU-oJ-3o3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fJe-bp-aBK" secondAttribute="trailing" id="kVv-JH-enf"/>
+                            <constraint firstItem="v6Y-jt-nZI" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="qhu-Lg-HOd"/>
                             <constraint firstItem="fJe-bp-aBK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="v5v-ZE-fcj"/>
                             <constraint firstItem="fJe-bp-aBK" firstAttribute="top" secondItem="z8a-BI-bhM" secondAttribute="bottom" constant="30" id="zor-mP-qxw"/>
                         </constraints>
@@ -63,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -98,18 +108,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NPO-VB-zr2" id="lq1-C7-iNC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tmx-V9-TBt">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H1h-T0-LCn">
-                                            <rect key="frame" x="316" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>

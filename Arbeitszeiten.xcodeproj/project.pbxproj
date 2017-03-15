@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48362DF11E79C9BF00FA7AD4 /* DiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48362DF01E79C9BF00FA7AD4 /* DiagramView.swift */; };
 		484247DF1E71FF500073FC70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484247DE1E71FF500073FC70 /* AppDelegate.swift */; };
 		484247E11E71FF500073FC70 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484247E01E71FF500073FC70 /* StopwatchViewController.swift */; };
 		484247E31E71FF500073FC70 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484247E21E71FF500073FC70 /* ListViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48362DF01E79C9BF00FA7AD4 /* DiagramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramView.swift; sourceTree = "<group>"; };
 		484247DB1E71FF500073FC70 /* Arbeitszeiten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arbeitszeiten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		484247DE1E71FF500073FC70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		484247E01E71FF500073FC70 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				484247E71E71FF500073FC70 /* Assets.xcassets */,
 				484247E91E71FF500073FC70 /* LaunchScreen.storyboard */,
 				484247EC1E71FF500073FC70 /* Info.plist */,
+				48362DF01E79C9BF00FA7AD4 /* DiagramView.swift */,
 			);
 			path = Arbeitszeiten;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				484247DF1E71FF500073FC70 /* AppDelegate.swift in Sources */,
 				484CDABF1E72833B005447C0 /* StopwatchController.swift in Sources */,
 				484247E11E71FF500073FC70 /* StopwatchViewController.swift in Sources */,
+				48362DF11E79C9BF00FA7AD4 /* DiagramView.swift in Sources */,
 				4842480F1E7202AA0073FC70 /* Stopwatch.swift in Sources */,
 				8042A9CF1E784657005160AA /* DetailsViewController.swift in Sources */,
 				8042A9D11E7858B7005160AA /* DEBUG.swift in Sources */,
