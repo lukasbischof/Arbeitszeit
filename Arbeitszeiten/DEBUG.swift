@@ -68,8 +68,9 @@ let SHOULD_ENTER_TEST_DATA = false
 struct _DEBUG {
     static func saveTestData() {
         let ONE_DAY = 24.0 * ONE_HOUR
-        let durations = [9.2 * ONE_HOUR, 8.1 * ONE_HOUR, 7.5 * ONE_HOUR, 9.152 * ONE_HOUR, 6.2 * ONE_HOUR]
-        let dates = [Date(timeInterval: -5 * ONE_DAY, since: Date()),
+        let durations = [8.7 * ONE_HOUR, 9.2 * ONE_HOUR, 8.1 * ONE_HOUR, 7.5 * ONE_HOUR, 9.152 * ONE_HOUR, 6.2 * ONE_HOUR]
+        let dates = [Date(timeInterval: -6 * ONE_DAY, since: Date()),
+                     Date(timeInterval: -5 * ONE_DAY, since: Date()),
                      Date(timeInterval: -4 * ONE_DAY, since: Date()),
                      Date(timeInterval: -3 * ONE_DAY, since: Date()),
                      Date(timeInterval: -2 * ONE_DAY, since: Date()),

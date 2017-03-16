@@ -12,10 +12,17 @@ class StopwatchViewController: UIViewController {
 
     @IBOutlet weak var toggleTimerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var diagramView: DiagramView!
     let stopwatchController = StopwatchController.sharedController
     var timerThread: Thread!
     var shouldStopThread: Bool = false
     var isDisplayingAStopwatch = false
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return UIInterfaceOrientationMask.portraitUpsideDown
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +98,7 @@ class StopwatchViewController: UIViewController {
         stopwatchController.save()
         
         isDisplayingAStopwatch = false
+        diagramView.reload()
     }
     
     internal func timerThreadMain() -> Swift.Void {
