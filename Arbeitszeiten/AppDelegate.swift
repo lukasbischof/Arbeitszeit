@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        if SHOULD_ENTER_TEST_DATA {
+        let env = _DEBUG.getEnvironmentVar(name: "enterTestData")
+        
+        if env != nil && env == "add" {
             _DEBUG.saveTestData()
         }
         

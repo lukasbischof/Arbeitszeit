@@ -9,58 +9,6 @@
 import Foundation
 
 /* ******************************************************************************** */
-/*                              CONFIGURATION                                       */
-/* ******************************************************************************** */
-
-let SHOULD_ENTER_TEST_DATA = false
-
- 
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ******************************************************************************** */
 /*                              TESTING FUNCTIONS                                   */
 /* ******************************************************************************** */
 
@@ -87,6 +35,14 @@ struct _DEBUG {
         
         StopwatchController.sharedController.save()
         exit(EXIT_SUCCESS)
+    }
+    
+    static func getEnvironmentVar(name: String) -> String? {
+        guard let rawValue = getenv(name) else {
+            return nil
+        }
+        
+        return String(utf8String: rawValue)
     }
 }
 
