@@ -137,7 +137,14 @@ class ListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsSegue" {
             if let targetController = segue.destination as? DetailsViewController {
-                let indexPath = self.tableView.indexPathForSelectedRow!
+                var indexPath: IndexPath!
+                
+                if sender != nil && sender is UITableViewCell {
+                   indexPath = tableView.indexPath(for: (sender as! UITableViewCell))!
+                } else {
+                    indexPath = tableView.indexPathForSelectedRow!
+                }
+                
                 targetController.stopwatch = stopwatchesByMonth[monthForSectionIndex(section: indexPath.section)]![indexPath.row]
             }
         }
