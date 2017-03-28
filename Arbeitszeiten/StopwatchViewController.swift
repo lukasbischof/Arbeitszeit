@@ -11,6 +11,7 @@ import UIKit
 class StopwatchViewController: UIViewController {
 
     @IBOutlet weak var toggleTimerButton: UIButton!
+    @IBOutlet weak var pauseTimerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var diagramView: DiagramView!
     let stopwatchController = StopwatchController.sharedController
@@ -64,6 +65,10 @@ class StopwatchViewController: UIViewController {
         } else if !stopwatchController.currentStopwatch.hasStopped {
             stopStopwatch(stopwatchController.currentStopwatch)
         }
+    }
+    
+    @IBAction func togglePauseButtonPressed(_ sender: UIButton) {
+        
     }
     
     internal func startStopwatch(_ stopwatch: Stopwatch) -> Void {
