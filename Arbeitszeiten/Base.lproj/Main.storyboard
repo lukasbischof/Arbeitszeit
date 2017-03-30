@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,10 +26,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8a-BI-bhM">
-                                <rect key="frame" x="117" y="60" width="140" height="140"/>
+                                <rect key="frame" x="16" y="60" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z8a-BI-bhM" secondAttribute="height" multiplier="1:1" id="RIJ-NY-nlZ"/>
-                                    <constraint firstAttribute="width" constant="140" id="vm7-Q0-kZC"/>
+                                    <constraint firstAttribute="width" constant="130" id="vm7-Q0-kZC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Start"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uhr noch nicht gestartet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJe-bp-aBK">
-                                <rect key="frame" x="16" y="230" width="343" height="44"/>
+                                <rect key="frame" x="16" y="220" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="AbU-ao-05v"/>
                                 </constraints>
@@ -47,20 +47,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6Y-jt-nZI" customClass="DiagramView" customModule="Arbeitszeiten" customModuleProvider="target">
-                                <rect key="frame" x="16" y="314" width="343" height="200"/>
+                                <rect key="frame" x="16" y="304" width="343" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="scm-Tw-n4K"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPU-1R-KFR">
+                                <rect key="frame" x="229" y="60" width="130" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="togglePauseButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="dTs-BO-vlF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="z8a-BI-bhM" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="3Om-KY-mEV"/>
+                            <constraint firstItem="mPU-1R-KFR" firstAttribute="width" secondItem="mPU-1R-KFR" secondAttribute="height" multiplier="1:1" id="1uv-Ze-B13"/>
+                            <constraint firstItem="z8a-BI-bhM" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="CRC-8a-WHk"/>
                             <constraint firstItem="v6Y-jt-nZI" firstAttribute="top" secondItem="fJe-bp-aBK" secondAttribute="bottom" constant="40" id="DMv-lF-waA"/>
                             <constraint firstItem="z8a-BI-bhM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="40" id="I0X-19-KYY"/>
                             <constraint firstItem="v6Y-jt-nZI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="UfU-oJ-3o3"/>
+                            <constraint firstItem="mPU-1R-KFR" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Zna-67-bWF"/>
+                            <constraint firstItem="mPU-1R-KFR" firstAttribute="width" secondItem="z8a-BI-bhM" secondAttribute="width" id="fgz-Op-MqL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fJe-bp-aBK" secondAttribute="trailing" id="kVv-JH-enf"/>
+                            <constraint firstItem="mPU-1R-KFR" firstAttribute="top" secondItem="z8a-BI-bhM" secondAttribute="top" id="lq1-fd-FrO"/>
                             <constraint firstItem="v6Y-jt-nZI" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="qhu-Lg-HOd"/>
                             <constraint firstItem="fJe-bp-aBK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="v5v-ZE-fcj"/>
                             <constraint firstItem="fJe-bp-aBK" firstAttribute="top" secondItem="z8a-BI-bhM" secondAttribute="bottom" constant="30" id="zor-mP-qxw"/>
@@ -69,6 +81,7 @@
                     <tabBarItem key="tabBarItem" title="Stoppuhr" image="clock" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="diagramView" destination="v6Y-jt-nZI" id="8Km-Cw-uUa"/>
+                        <outlet property="pauseTimerButton" destination="mPU-1R-KFR" id="jTO-7e-3qs"/>
                         <outlet property="timerLabel" destination="fJe-bp-aBK" id="I4X-p5-Fs3"/>
                         <outlet property="toggleTimerButton" destination="z8a-BI-bhM" id="Lx9-Gs-COy"/>
                     </connections>
@@ -109,18 +122,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NPO-VB-zr2" id="lq1-C7-iNC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tmx-V9-TBt">
-                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H1h-T0-LCn">
-                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="316" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
