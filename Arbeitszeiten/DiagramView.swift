@@ -118,13 +118,13 @@ class DiagramView: UIView {
             let dataEntryY = CGFloat((Double(maximum) * ONE_HOUR - stopwatch.duration) / timeSpan) * (height - (2.0 * verticalPadding) - bottomLabelHeight) + verticalPadding
             
             ctx?.beginPath()
-            ctx?.addArc(center: CGPoint(x: x, y: dataEntryY), radius: 5.5, startAngle: 0.0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+            ctx?.addArc(center: CGPoint(x: x, y: dataEntryY), radius: 5.5, startAngle: 0.0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
             ctx?.closePath()
             ctx?.setFillColor(graphColor.cgColor)
             ctx?.fillPath()
             
             if let lastDataEntry = lastDataEntryY {
-                let lastX = leftLabelPadding  + leftDataEntriesPadding + CGFloat(index - 1) * verticalDist
+                let lastX = leftLabelPadding + leftDataEntriesPadding + CGFloat(index - 1) * verticalDist
                 
                 ctx?.beginPath()
                 ctx?.move(to: CGPoint(x: lastX, y: lastDataEntry))

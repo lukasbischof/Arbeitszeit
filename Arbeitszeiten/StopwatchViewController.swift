@@ -29,8 +29,11 @@ class StopwatchViewController: UIViewController {
         super.viewDidLoad()
         
         self.toggleTimerButton.layer.cornerRadius = self.toggleTimerButton.frame.width / 2.0
-        self.toggleTimerButton.layer.borderWidth = 1.0
-        self.toggleTimerButton.layer.borderColor = UIColor.blue.cgColor
+        self.pauseTimerButton.layer.cornerRadius = self.toggleTimerButton.frame.width / 2.0
+        toggleTimerButton.layer.borderWidth = 2.0
+        pauseTimerButton.layer.borderWidth = 2.0
+        toggleEnabledStateOfStartButton(enabled: true)
+        toggleEnabledStateOfPauseButton(enabled: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(StopwatchViewController.applicationDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
@@ -44,6 +47,7 @@ class StopwatchViewController: UIViewController {
             !isDisplayingAStopwatch
         {
             startRenderingStopwatch()
+            toggleEnabledStateOfPauseButton(enabled: true)
         }
     }
     
@@ -54,8 +58,7 @@ class StopwatchViewController: UIViewController {
     func reenableToggleTimerButton() {
         if !toggleTimerButton.isEnabled {
             toggleTimerButton.setTitle("Start", for: .normal)
-            toggleTimerButton.isEnabled = true
-            toggleTimerButton.layer.borderColor = UIColor.blue.cgColor
+            toggleEnabledStateOfStartButton(enabled: true)
         }
     }
     
@@ -68,12 +71,45 @@ class StopwatchViewController: UIViewController {
     }
     
     @IBAction func togglePauseButtonPressed(_ sender: UIButton) {
+        if stopwatchController.currentStopwatch.isPaused {
+            // resume
+            
+            startRenderingStopwatch()
+            pauseTimerButton.setTitle("Pause", for: .normal)
+        } else {
+            // pause
+            
+            shouldStopThread = true
+            pauseTimerButton.setTitle("Weiter", for: .normal)
+        }
         
+        stopwatchController.currentStopwatch.togglePause()
     }
     
     internal func startStopwatch(_ stopwatch: Stopwatch) -> Void {
         stopwatch.start()
         startRenderingStopwatch()
+        toggleEnabledStateOfPauseButton(enabled: true)
+    }
+    
+    internal func toggleEnabledStateOfStartButton(enabled: Bool) {
+        if !enabled {
+            toggleTimerButton.isEnabled = false
+            toggleTimerButton.layer.borderColor = UIColor.lightGray.cgColor
+        } else {
+            toggleTimerButton.isEnabled = true
+            toggleTimerButton.layer.borderColor = UIColor.blue.cgColor
+        }
+    }
+    
+    internal func toggleEnabledStateOfPauseButton(enabled: Bool) {
+        if !enabled {
+            pauseTimerButton.isEnabled = false
+            pauseTimerButton.layer.borderColor = UIColor.lightGray.cgColor
+        } else {
+            pauseTimerButton.isEnabled = true
+            pauseTimerButton.layer.borderColor = UIColor.blue.cgColor
+        }
     }
     
     internal func startRenderingStopwatch() -> Void {
@@ -94,8 +130,7 @@ class StopwatchViewController: UIViewController {
         
         stopwatch.stop()
         toggleTimerButton.setTitle("Gestoppt", for: .normal)
-        toggleTimerButton.isEnabled = false
-        toggleTimerButton.layer.borderColor = UIColor.lightGray.cgColor
+        toggleEnabledStateOfStartButton(enabled: false)
         timerLabel.text = StopwatchController.formatTimeInterval(stopwatch.duration, shouldIncludeTenthSecs: true)
         
         stopwatchController.addStopwatch(stopwatch)
@@ -104,6 +139,8 @@ class StopwatchViewController: UIViewController {
         
         isDisplayingAStopwatch = false
         diagramView.reload()
+        
+        toggleEnabledStateOfPauseButton(enabled: false)
     }
     
     internal func timerThreadMain() -> Swift.Void {

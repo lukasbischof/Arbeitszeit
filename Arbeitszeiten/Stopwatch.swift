@@ -30,7 +30,7 @@ class Stopwatch: NSObject, NSCoding {
     var passedTime: TimeInterval {
         get {
             if let date = startDate {
-                return -date.timeIntervalSinceNow
+                return -date.timeIntervalSinceNow - pauseDuration
             } else {
                 return 0
             }
@@ -79,7 +79,7 @@ class Stopwatch: NSObject, NSCoding {
         hasStopped = true
         endDate = Date()
         
-        duration = endDate!.timeIntervalSince(startDate!)
+        duration = endDate!.timeIntervalSince(startDate!) - pauseDuration
     }
     
     func togglePause() {

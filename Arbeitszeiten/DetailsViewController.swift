@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var startLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var pauseDurationLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     var stopwatch: Stopwatch!
@@ -28,6 +29,7 @@ class DetailsViewController: UIViewController {
         self.startLabel.text = StopwatchController.formatTime(date: stopwatch.startDate!)
         self.endLabel.text = StopwatchController.formatTime(date: stopwatch.endDate!)
         self.durationLabel.text = StopwatchController.formatTimeInterval(stopwatch.duration, shouldIncludeTenthSecs: false)
+        self.pauseDurationLabel.text = StopwatchController.formatTimeInterval(stopwatch.pauseDuration, shouldIncludeTenthSecs: false)
     }
 
     override func didReceiveMemoryWarning() {
