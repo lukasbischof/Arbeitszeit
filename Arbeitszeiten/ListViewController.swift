@@ -25,7 +25,7 @@ class ListViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "Header", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "headerNib")
         
-        
+        tableView.allowsSelectionDuringEditing = false
     }
     
     func calculateOvertime() -> TimeInterval {
@@ -110,6 +110,24 @@ class ListViewController: UITableViewController {
         header.contentView.isOpaque = true
         
         return header
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let stopwatch = stopwatchesByMonth[monthForSectionIndex(section: indexPath.section)]![indexPath.row]
+            
+            if let ind = stopwatchController.stopwatches.index(of: stopwatch) {
+                stopwatchController.stopwatches.remove(at: ind)
+                self.stopwatchesByMonth = stopwatchController.getStopwatchesByMonth()
+                stopwatchController.save()
+                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

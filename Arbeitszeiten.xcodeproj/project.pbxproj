@@ -18,6 +18,7 @@
 		484248011E71FF510073FC70 /* ArbeitszeitenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484248001E71FF510073FC70 /* ArbeitszeitenUITests.swift */; };
 		4842480F1E7202AA0073FC70 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842480E1E7202AA0073FC70 /* Stopwatch.swift */; };
 		484CDABF1E72833B005447C0 /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDABE1E72833B005447C0 /* StopwatchController.swift */; };
+		48B555C81E92DF9A00552035 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B555C71E92DF9A00552035 /* EditViewController.swift */; };
 		8042A9CF1E784657005160AA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042A9CE1E784657005160AA /* DetailsViewController.swift */; };
 		8042A9D11E7858B7005160AA /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042A9D01E7858B7005160AA /* DEBUG.swift */; };
 		806A31251E787B7B00E21D68 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A31241E787B7B00E21D68 /* Header.xib */; };
@@ -58,6 +59,7 @@
 		484248021E71FF510073FC70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4842480E1E7202AA0073FC70 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		484CDABE1E72833B005447C0 /* StopwatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
+		48B555C71E92DF9A00552035 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		8042A9CE1E784657005160AA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8042A9D01E7858B7005160AA /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DEBUG.swift; path = ../Arbeitszeiten/DEBUG.swift; sourceTree = "<group>"; };
 		806A31241E787B7B00E21D68 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				484247E21E71FF500073FC70 /* ListViewController.swift */,
 				806A31241E787B7B00E21D68 /* Header.xib */,
 				8042A9CE1E784657005160AA /* DetailsViewController.swift */,
+				48B555C71E92DF9A00552035 /* EditViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				4842480F1E7202AA0073FC70 /* Stopwatch.swift in Sources */,
 				8042A9CF1E784657005160AA /* DetailsViewController.swift in Sources */,
 				8042A9D11E7858B7005160AA /* DEBUG.swift in Sources */,
+				48B555C81E92DF9A00552035 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

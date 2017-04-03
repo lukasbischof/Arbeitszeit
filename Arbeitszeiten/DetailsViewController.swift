@@ -17,6 +17,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     var stopwatch: Stopwatch!
+    var stopwatchEditingCopy: Stopwatch?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = "Details"
+        setup()
+    }
+    
+    func setup() {
         self.titleLabel.text = StopwatchController.formatDate(date: stopwatch.startDate!)
         
         self.startLabel.text = StopwatchController.formatTime(date: stopwatch.startDate!)
@@ -36,5 +41,23 @@ class DetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func done(segue: UIStoryboardSegue) {
+        StopwatchController.sharedController.save()
+        setup()
+        stopwatchEditingCopy = nil
+    }
+    
+    @IBAction func cancel(segue: UIStoryboardSegue) {
+        stopwatch = stopwatchEditingCopy!
+        stopwatchEditingCopy = nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editViewControllerSegue" {
+            let destination = segue.destination as! EditViewController
+            stopwatchEditingCopy = stopwatch.copy() as? Stopwatch
+            destination.stopwatch = stopwatch
+        }
+    }
 }

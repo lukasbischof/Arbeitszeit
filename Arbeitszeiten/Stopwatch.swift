@@ -17,12 +17,11 @@ let IS_PAUSED_KEY = "ip"
 let PAUSE_DURATION_KEY = "pd"
 let LAST_PAUSE_DATE_KEY = "lp"
 
-class Stopwatch: NSObject, NSCoding {
+class Stopwatch: NSObject, NSCoding, NSCopying {
     private(set) var hasStarted = false
     private(set) var hasStopped = false
     internal var startDate: Date?
     internal var endDate: Date?
-    internal var duration: TimeInterval = 0
     internal var pauseDuration: TimeInterval = 0
     internal var lastPauseDate: Date?
     internal private(set) var isPaused: Bool = false
@@ -31,6 +30,16 @@ class Stopwatch: NSObject, NSCoding {
         get {
             if let date = startDate {
                 return -date.timeIntervalSinceNow - pauseDuration
+            } else {
+                return 0
+            }
+        }
+    }
+    
+    internal var duration: TimeInterval {
+        get {
+            if hasStopped {
+                return endDate!.timeIntervalSince(startDate!) - pauseDuration
             } else {
                 return 0
             }
@@ -51,7 +60,6 @@ class Stopwatch: NSObject, NSCoding {
         super.init()
         self.startDate = aDecoder.decodeObject(forKey: START_DATE_KEY) as? Date
         self.endDate = aDecoder.decodeObject(forKey: END_DATE_KEY) as? Date
-        self.duration = aDecoder.decodeDouble(forKey: DURATION_KEY) as TimeInterval
         self.hasStarted = aDecoder.decodeBool(forKey: HAS_STARTED_KEY)
         self.hasStopped = aDecoder.decodeBool(forKey: HAS_STOPPED_KEY)
         self.lastPauseDate = aDecoder.decodeObject(forKey: LAST_PAUSE_DATE_KEY) as? Date
@@ -70,6 +78,18 @@ class Stopwatch: NSObject, NSCoding {
         aCoder.encode(isPaused, forKey: IS_PAUSED_KEY)
     }
     
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Stopwatch()
+        copy.startDate = startDate
+        copy.endDate = endDate
+        copy.hasStopped = hasStopped
+        copy.hasStarted = hasStarted
+        copy.lastPauseDate = lastPauseDate
+        copy.pauseDuration = pauseDuration
+        copy.isPaused = isPaused
+        return copy
+    }
+    
     func start() {
         hasStarted = true
         startDate = Date()
@@ -78,8 +98,6 @@ class Stopwatch: NSObject, NSCoding {
     func stop() {
         hasStopped = true
         endDate = Date()
-        
-        duration = endDate!.timeIntervalSince(startDate!) - pauseDuration
     }
     
     func togglePause() {

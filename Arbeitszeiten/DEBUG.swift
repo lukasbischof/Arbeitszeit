@@ -29,7 +29,6 @@ struct _DEBUG {
             let stopwatch = Stopwatch()
             stopwatch.startDate = dates[i]
             stopwatch.endDate = Date(timeInterval: duration, since: stopwatch.startDate!)
-            stopwatch.duration = duration
             
             StopwatchController.sharedController.addStopwatch(stopwatch)
         }

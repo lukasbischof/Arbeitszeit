@@ -165,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="1688.8" y="356.67166416791605"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Zeiten-->
         <scene sceneID="CI3-P1-tpB">
             <objects>
                 <viewController id="UKZ-oM-LkA" customClass="DetailsViewController" customModule="Arbeitszeiten" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,6 +266,13 @@
                             <constraint firstItem="dcW-72-VSj" firstAttribute="width" secondItem="6Si-9m-2gf" secondAttribute="width" multiplier="0.4" id="xz8-sh-h5C"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Zeiten" id="dah-FA-Huk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="7ad-FD-rZB">
+                            <connections>
+                                <segue destination="38q-Bh-30U" kind="showDetail" identifier="editViewControllerSegue" id="VcL-r0-ZNy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="durationLabel" destination="5lw-W9-W15" id="cC1-I0-SXW"/>
                         <outlet property="endLabel" destination="PLW-nO-TRo" id="0OA-TM-NWf"/>
@@ -277,6 +284,123 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TA-e7-W2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2576.8000000000002" y="356.67166416791605"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="v6V-Xm-R0P">
+            <objects>
+                <viewController id="38q-Bh-30U" customClass="EditViewController" customModule="Arbeitszeiten" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aPX-bJ-Mmt"/>
+                        <viewControllerLayoutGuide type="bottom" id="QHY-GS-Nid"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JBb-W6-ghR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-pe-e5r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="HCy-ba-Gcv"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Editieren" id="gd4-rD-leX">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oR4-BO-AH3">
+                                            <connections>
+                                                <segue destination="u7J-le-gbi" kind="unwind" unwindAction="cancelWithSegue:" id="puf-KY-I1F"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="4Et-i1-Aud">
+                                            <connections>
+                                                <segue destination="u7J-le-gbi" kind="unwind" unwindAction="doneWithSegue:" id="KSG-U2-zze"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5E-Zt-j0m">
+                                <rect key="frame" x="16" y="108" width="343" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="NE3-ib-P3g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Start: ##:##:##">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editStartButtonPressed:" destination="38q-Bh-30U" eventType="touchUpInside" id="WVL-0e-njW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chz-Mu-dAX">
+                                <rect key="frame" x="16" y="141" width="343" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="NW3-oF-Hwk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Ende: ##:##:##">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editEndButtonPressed:" destination="38q-Bh-30U" eventType="touchUpInside" id="yWh-xN-V23"/>
+                                </connections>
+                            </button>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bpF-nK-C44">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512941800.87503803">
+                                    <!--2017-04-03 19:50:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="de_CH"/>
+                                <connections>
+                                    <action selector="pickerValueChanged:" destination="38q-Bh-30U" eventType="valueChanged" id="2FI-4L-CQI"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UE3-Vj-0c8">
+                                <rect key="frame" x="16" y="174" width="343" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Rtp-wk-VMc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Pause: ##:##:##">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editDurationButtonPressed:" destination="38q-Bh-30U" eventType="touchUpInside" id="PHo-Yf-far"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ffg-pe-e5r" secondAttribute="trailing" id="0uf-MP-TMD"/>
+                            <constraint firstItem="bpF-nK-C44" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leading" id="3k9-FA-ULn"/>
+                            <constraint firstItem="Chz-Mu-dAX" firstAttribute="top" secondItem="x5E-Zt-j0m" secondAttribute="bottom" constant="8" id="5ZV-TD-RZ7"/>
+                            <constraint firstItem="UE3-Vj-0c8" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="8fS-ez-k44"/>
+                            <constraint firstItem="Ffg-pe-e5r" firstAttribute="top" secondItem="JBb-W6-ghR" secondAttribute="top" id="Dcr-Va-Ctr"/>
+                            <constraint firstItem="x5E-Zt-j0m" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="P8K-hi-m8z"/>
+                            <constraint firstItem="x5E-Zt-j0m" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="QZp-28-hiv"/>
+                            <constraint firstItem="x5E-Zt-j0m" firstAttribute="top" secondItem="Ffg-pe-e5r" secondAttribute="bottom" constant="44" id="WoC-qV-sYK"/>
+                            <constraint firstItem="Ffg-pe-e5r" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leading" id="ZCK-b1-ths"/>
+                            <constraint firstItem="QHY-GS-Nid" firstAttribute="top" secondItem="bpF-nK-C44" secondAttribute="bottom" id="fS9-e8-Lxi"/>
+                            <constraint firstItem="Chz-Mu-dAX" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="s6n-BY-XHU"/>
+                            <constraint firstItem="Chz-Mu-dAX" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="sNd-Ch-R5G"/>
+                            <constraint firstAttribute="trailing" secondItem="bpF-nK-C44" secondAttribute="trailing" id="v3f-bM-Q7Q"/>
+                            <constraint firstItem="UE3-Vj-0c8" firstAttribute="top" secondItem="Chz-Mu-dAX" secondAttribute="bottom" constant="8" id="vx9-LB-N0G"/>
+                            <constraint firstItem="UE3-Vj-0c8" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="x0h-xB-joA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="bpF-nK-C44" id="LYj-37-IBR"/>
+                        <outlet property="editDurationButton" destination="UE3-Vj-0c8" id="1KK-qd-7kA"/>
+                        <outlet property="editEndButton" destination="Chz-Mu-dAX" id="IZV-Mp-VEh"/>
+                        <outlet property="editStartButton" destination="x5E-Zt-j0m" id="pJB-42-cBk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFe-1R-ku6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="u7J-le-gbi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3376.8000000000002" y="356.67166416791605"/>
         </scene>
         <!--Zeiten-->
         <scene sceneID="HBm-eq-S0G">
