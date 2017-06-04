@@ -1,5 +1,5 @@
 # Arbeitszeit
-Eine App, um die Arbeitsstunden einzutragen
+Eine App, um Arbeitsstunden einzutragen und so Überstunden zu zählen.
 
 ### Requirements
 * Swift 3.0
@@ -13,4 +13,4 @@ Eine App, um die Arbeitsstunden einzutragen
 
 ### Debugging
 #### Hinzufügen von Sample-Daten
-Mit der Environment-Variable "enterTestData"="add", kann man bei dem Startup einige Testdaten einfügen. Bei dem nächsten starten sollte man die Variable entfernen.
+Mit der Environment-Variable "enterTestData"="add", kann man bei dem Startup einige Testdaten einfügen. Bei dem nächsten Starten sollte man die Variable entfernen.
