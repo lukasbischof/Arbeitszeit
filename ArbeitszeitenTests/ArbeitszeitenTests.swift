@@ -21,9 +21,10 @@ class ArbeitszeitenTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIfStopwatchStarts() {
+        let watch = Stopwatch()
+        watch.start()
+        XCTAssertTrue(watch.hasStarted, "Stopwatch should have started")
     }
     
 }
