@@ -370,6 +370,22 @@
                                     <action selector="editDurationButtonPressed:" destination="38q-Bh-30U" eventType="touchUpInside" id="PHo-Yf-far"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="smd-lV-IFn">
+                                <rect key="frame" x="16" y="244" width="343" height="199"/>
+                                <color key="backgroundColor" red="0.9530813887936328" green="0.96251783818762915" blue="0.96251783818762915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="38q-Bh-30U" id="WxC-tN-7VE"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notizen: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6s-Pv-xr0">
+                                <rect key="frame" x="31" y="215" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -378,15 +394,21 @@
                             <constraint firstItem="Chz-Mu-dAX" firstAttribute="top" secondItem="x5E-Zt-j0m" secondAttribute="bottom" constant="8" id="5ZV-TD-RZ7"/>
                             <constraint firstItem="UE3-Vj-0c8" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="8fS-ez-k44"/>
                             <constraint firstItem="Ffg-pe-e5r" firstAttribute="top" secondItem="JBb-W6-ghR" secondAttribute="top" id="Dcr-Va-Ctr"/>
+                            <constraint firstItem="bpF-nK-C44" firstAttribute="top" secondItem="smd-lV-IFn" secondAttribute="bottom" constant="8" id="H4k-As-TFp"/>
+                            <constraint firstItem="B6s-Pv-xr0" firstAttribute="top" secondItem="UE3-Vj-0c8" secondAttribute="bottom" constant="16" id="Hid-65-qtS"/>
+                            <constraint firstItem="B6s-Pv-xr0" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" constant="15" id="MSu-ML-qBW"/>
                             <constraint firstItem="x5E-Zt-j0m" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="P8K-hi-m8z"/>
                             <constraint firstItem="x5E-Zt-j0m" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="QZp-28-hiv"/>
                             <constraint firstItem="x5E-Zt-j0m" firstAttribute="top" secondItem="Ffg-pe-e5r" secondAttribute="bottom" constant="44" id="WoC-qV-sYK"/>
+                            <constraint firstItem="smd-lV-IFn" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="Xjk-Se-Ocd"/>
                             <constraint firstItem="Ffg-pe-e5r" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leading" id="ZCK-b1-ths"/>
+                            <constraint firstItem="smd-lV-IFn" firstAttribute="top" secondItem="B6s-Pv-xr0" secondAttribute="bottom" constant="8" id="aHG-Lk-6Zi"/>
                             <constraint firstItem="QHY-GS-Nid" firstAttribute="top" secondItem="bpF-nK-C44" secondAttribute="bottom" id="fS9-e8-Lxi"/>
                             <constraint firstItem="Chz-Mu-dAX" firstAttribute="leading" secondItem="JBb-W6-ghR" secondAttribute="leadingMargin" id="s6n-BY-XHU"/>
                             <constraint firstItem="Chz-Mu-dAX" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="sNd-Ch-R5G"/>
                             <constraint firstAttribute="trailing" secondItem="bpF-nK-C44" secondAttribute="trailing" id="v3f-bM-Q7Q"/>
                             <constraint firstItem="UE3-Vj-0c8" firstAttribute="top" secondItem="Chz-Mu-dAX" secondAttribute="bottom" constant="8" id="vx9-LB-N0G"/>
+                            <constraint firstItem="smd-lV-IFn" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="whi-Jh-EuF"/>
                             <constraint firstItem="UE3-Vj-0c8" firstAttribute="trailing" secondItem="JBb-W6-ghR" secondAttribute="trailingMargin" id="x0h-xB-joA"/>
                         </constraints>
                     </view>
@@ -395,6 +417,7 @@
                         <outlet property="editDurationButton" destination="UE3-Vj-0c8" id="1KK-qd-7kA"/>
                         <outlet property="editEndButton" destination="Chz-Mu-dAX" id="IZV-Mp-VEh"/>
                         <outlet property="editStartButton" destination="x5E-Zt-j0m" id="pJB-42-cBk"/>
+                        <outlet property="userNotesTextView" destination="smd-lV-IFn" id="fjP-He-LUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFe-1R-ku6" userLabel="First Responder" sceneMemberID="firstResponder"/>
