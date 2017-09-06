@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: Arbeitszeiten.xcodeproj
 xcode_scheme: ArbeitszeitenTests
-xcode_sdk: iphonesimulator10.0
+xcode_sdk: iphonesimulator9.0
