@@ -1,3 +1,5 @@
+![](https://travis-ci.com/lukasbischof/Arbeitszeit.svg?token=Zu6v7Wp6us6K2cbdTwww&branch=master)
+
 # Arbeitszeit
 Eine App, um Arbeitsstunden einzutragen und so Überstunden zu zählen.
 
